@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <!--对移动设备进一步友好支持-->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Document</title>
+    <link href="../boot/css/bootstrap.min.css" rel="stylesheet">
+    <!--核心jquery js-->
+    <script src="../boot/js/jquery-3.4.1.min.js"></script>
+    <!--bootstrap 核心 js-->
+    <script src="../boot/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            /* $("#btn").click(function(){
+                 //用来根据指定url,将页面源码包含到当前指定选择器中  被包含的页面中不能有其他额外标签或样式
+                 $("#content").load("./users/list_cpoy.jsp");
+             });*/
+            //切换样式
+            $(".list-group").on("click", ".list-group-item", function () {
+                //去掉所有
+                $(".list-group-item").removeClass().addClass("list-group-item");
+                //点击激活
+                $(this).addClass("active");
+            });
+        })
+    </script>
+<!--    <style>-->
+<!--        .aa {-->
+<!--            border: 1px red solid;-->
+<!--        }-->
+<!--    </style>-->
+</head>
+<body>
+<nav class="navbar navbar-default ">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Maizi&nbsp;Admin</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left list-group">
+            <li class="list-group-item"><a class="btn btn-default" href="./后台首页.html"> <span
+                    class="glyphicon glyphicon-home"></span> 后台首页</a></li>
+            <li class="list-group-item"><a class="btn btn-default" href="./用户管理.html"> <span
+                    class="glyphicon glyphicon-user"></span> 用户管理</a></li>
+            <li class="list-group-item"><a class="btn btn-default" href="./内容管理.html"> <span
+                    class="glyphicon glyphicon-list-alt"></span> 内容管理</a></li>
+            <li class="list-group-item"><a class="btn btn-default" href="./标签管理.html"> <span
+                    class="glyphicon glyphicon-tag"></span> 标签管理</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#"
+                   role="button">admin <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider" role="separator"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </li>
+            <li><a class="btn btn-default" href=""> <span class="glyphicon glyphicon-off"></span> 退出</a></li>
+        </ul>
+    </div>
+</nav>
+<!--栅格容器-->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 aa">
+            <!--内容填充-->
+            <h2 style="float: left ;clear: left"><strong>TAG标签管理</strong></h2><br>
+            <div class="col-sm-12">
+                <form class="navbar-form navbar-left " style="clear: left">
+                    <div class="form-group">
+                        <input class="form-control" placeholder="Search" type="text">
+                    </div>
+                    <button class="btn btn-default" type="submit">添加</button>
+                </form>
+            </div>
+            <br>
+            <br>
+            <div class="alert alert-info alert-dismissible col-sm-1 aa" >
+                <button class="close" data-dismiss="alert"><span>&times;</span></button>
+                bootStrap</a>
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="alert alert-info alert-dismissible  col-sm-1 aa">
+                <button class="close" data-dismiss="alert"><span>&times;</span></button>
+                麦子学院</a>
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="alert alert-info alert-dismissible  col-sm-1 aa">
+                <button class="close" data-dismiss="alert"><span>&times;</span></button>
+                前端课程</a>
+            </div>
+            <br>
+            <div style="text-align: center; clear: left">
+                <span>tfvjuuyk kgukgtgyumbdbshbtrrtbrtht</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

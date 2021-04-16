@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+          name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <!--对移动设备进一步友好支持-->
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>Document</title>
+    <link href="../boot/css/bootstrap.min.css" rel="stylesheet">
+    <!--核心jquery js-->
+    <script src="../boot/js/jquery-3.4.1.min.js"></script>
+    <!--bootstrap 核心 js-->
+    <script src="../boot/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            /*//切换样式*/
+            $(".list-group").on("click", ".list-group-item", function () {
+                //去掉所有
+                $(".list-group-item").removeClass().addClass("list-group-item");
+                //点击激活
+                $(this).addClass("active");
+            });
+        })
+        /*<!--添加用户模态框-->*/
+        $('#exampleModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget);
+            var recipient = button.data('whatever');
+            var modal = $(this);
+            modal.find('.modal-title').text('New message to ' + recipient);
+            modal.find('.modal-body input').val(recipient)
+        })
+    </script>
+
+</head>
+<body>
+<!--导航栏-->
+<nav class="navbar navbar-default ">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="#">Maizi&nbsp;Admin</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-left list-group">
+            <li class="list-group-item"><a class="btn btn-default" href="./后台首页.html"> <span
+                    class="glyphicon glyphicon-home"></span> 后台首页</a></li>
+            <li class="list-group-item"><a class="btn btn-default" href="./用户管理.html"> <span
+                    class="glyphicon glyphicon-user"></span> 用户管理</a></li>
+            <li class="list-group-item"><a class="btn btn-default" href="./内容管理.html"> <span
+                    class="glyphicon glyphicon-list-alt"></span> 内容管理</a></li>
+            <li class="list-group-item"><a class="btn btn-default" href="./标签管理.html"> <span
+                    class="glyphicon glyphicon-tag"></span> 标签管理</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+                <a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#"
+                   role="button">admin <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Action</a></li>
+                    <li><a href="#">Another action</a></li>
+                    <li><a href="#">Something else here</a></li>
+                    <li class="divider" role="separator"></li>
+                    <li><a href="#">Separated link</a></li>
+                </ul>
+            </li>
+            <li><a class="btn btn-default" href=""> <span class="glyphicon glyphicon-off"></span> 退出</a></li>
+        </ul>
+    </div>
+</nav>
+<!--栅格容器-->
+<div class="container-fluid">
+    <div class="row">
+        <!--内容填充-->
+        <div class="col-sm-3 aa">
+            <ul class="list-group">
+                <li><a href="./用户管理.html" id="btn" class="list-group-item active">
+                    用户管理
+                </a></li>
+                <li><a href="javascript:$('#content').load('./用户管理搜索.html');"
+                       class="list-group-item ">
+                    用户搜索
+                </a></li>
+                <li><a href="javascript:$('#content').load('./用户管理添加用户.html');">
+                    <button class="btn list-group-item" data-target="#exampleModal" data-toggle="modal" data-whatever="@mdo"
+                            type="button">
+                        添加用户
+                    </button>
+                </a></li>
+            </ul>
+        </div>
+        <!--右侧-->
+        <!--中心内容-->
+        <div id="content">
+            <div class="col-sm-9 aa">
+                <!--页头-->
+                <div class="page-header" style="margin-top: -20px">
+                    <h1>用户管理</h1>
+                </div>
+
+                <!--标签页组件-->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class=" active"><a href="#home" aria-controls="home" role="tab"
+                                                               data-toggle="tab">用户列表</a></li>
+                    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab"
+                                               data-toggle="tab">用户搜索</a>
+                    </li>
+                    <li role="presentation"><a href="#profile2" aria-controls="profile" role="tab"
+                                               data-toggle="tab">
+                        <button class="btn" data-target="#exampleModal" data-toggle="modal" data-whatever="@mdo"
+                                type="button">
+                            添加用户
+                        </button>
+                    </a>
+                    </li>
+                </ul>
+
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <!--用户管理-->
+                    <div role="tabpanel" class="tab-pane active" id="home">
+                        <table class="table  table-bordered table-hover table-condensed">
+
+                            <tbody>
+                            <tr>
+                                <td>ID</td>
+                                <td>用户名</td>
+                                <td>邮箱</td>
+                                <td>操作</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>张三</td>
+                                <td>111111111@qq.com</td>
+                                <td>
+                                    <div class="dropdown" style="float: left">
+                                        <button class="btn btn-default" data-toggle="dropdown">操作<span
+                                                class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="btn btn-primary" href="">修改</a></li>
+                                            <li><a class="btn btn-danger" href="">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>张三</td>
+                                <td>111111111@qq.com</td>
+                                <td>
+                                    <div class="dropdown" style="float: left">
+                                        <button class="btn btn-default" data-toggle="dropdown">操作<span
+                                                class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="btn btn-primary" href="">修改</a></li>
+                                            <li><a class="btn btn-danger" href="">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>张三</td>
+                                <td>111111111@qq.com</td>
+                                <td>
+                                    <div class="dropdown" style="float: left">
+                                        <button class="btn btn-default" data-toggle="dropdown">操作<span
+                                                class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="btn btn-primary" href="">修改</a></li>
+                                            <li><a class="btn btn-danger" href="">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>张三</td>
+                                <td>111111111@qq.com</td>
+                                <td>
+                                    <div class="dropdown" style="float: left">
+                                        <button class="btn btn-default" data-toggle="dropdown">操作<span
+                                                class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="btn btn-primary" href="">修改</a></li>
+                                            <li><a class="btn btn-danger" href="">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>张三</td>
+                                <td>111111111@qq.com</td>
+                                <td>
+                                    <div class="dropdown" style="float: left">
+                                        <button class="btn btn-default" data-toggle="dropdown">操作<span
+                                                class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="btn btn-primary" href="">修改</a></li>
+                                            <li><a class="btn btn-danger" href="">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>张三</td>
+                                <td>111111111@qq.com</td>
+                                <td>
+                                    <div class="dropdown" style="float: left">
+                                        <button class="btn btn-default" data-toggle="dropdown">操作<span
+                                                class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="btn btn-primary" href="">修改</a></li>
+                                            <li><a class="btn btn-danger" href="">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>张三</td>
+                                <td>111111111@qq.com</td>
+                                <td>
+                                    <div class="dropdown" style="float: left">
+                                        <button class="btn btn-default" data-toggle="dropdown">操作<span
+                                                class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="btn btn-primary" href="">修改</a></li>
+                                            <li><a class="btn btn-danger" href="">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>张三</td>
+                                <td>111111111@qq.com</td>
+                                <td>
+                                    <div class="dropdown" style="float: left">
+                                        <button class="btn btn-default" data-toggle="dropdown">操作<span
+                                                class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="btn btn-primary" href="">修改</a></li>
+                                            <li><a class="btn btn-danger" href="">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>张三</td>
+                                <td>111111111@qq.com</td>
+                                <td>
+                                    <div class="dropdown" style="float: left">
+                                        <button class="btn btn-default" data-toggle="dropdown">操作<span
+                                                class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="btn btn-primary" href="">修改</a></li>
+                                            <li><a class="btn btn-danger" href="">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>张三</td>
+                                <td>111111111@qq.com</td>
+                                <td>
+                                    <div class="dropdown" style="float: left">
+                                        <button class="btn btn-default" data-toggle="dropdown">操作<span
+                                                class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a class="btn btn-primary" href="">修改</a></li>
+                                            <li><a class="btn btn-danger" href="">删除</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!--用户搜索-->
+                    <div role="tabpanel" class="tab-pane" id="profile">
+                        <div class="alert alert-info alert-dismissible">
+                            <button class="close" data-dismiss="alert"><span>&times;</span></button>
+                            <strong>技巧提示</strong> 支持模糊搜索和匹配搜索，匹配搜索用*代替
+                        </div>
+                        <br>
+
+                        <form action="" class="form-inline col-sm-12">
+                            <strong>用户管理</strong><br>
+                            <input placeholder="请输入用户名" size="100" type="text"><br>
+                            <strong>UID</strong><br>
+                            <input placeholder="输入用户UID" size="100" type="text"><br>
+                            <strong>选择用户组</strong><br>
+                            <div class="dropdown" style="float: left">
+                                <button class="btn btn-default" data-toggle="dropdown">限制会员<span
+                                        class="caret"></span></button>
+                                <ul class="dropdown-menu">
+                                    <li>a</li>
+                                    <li>a</li>
+                                    <li>a</li>
+                                </ul>
+                            </div>
+                            <br>
+                            <br> <br>
+                            <input type="submit" value="提交">
+                            <br>
+                        </form>
+
+                        <br>
+                        <div style="text-align: center">
+                            <span>tfvjuuyk kgukgtgyumbdbshbtrrtbrtht</span>
+                        </div>
+                    </div>
+                    <!--添加用户-->
+                    <div role="tabpanel" class="tab-pane" id="profile2">
+
+                    </div>
+                </div>
+                <nav>
+                    <ul class="pagination pagination-sm" style="float: right">
+                        <li><a href=""><span>上一页</span></a></li>
+                        <li class="active"><a href="">1</a></li>
+                        <li><a href="">2</a></li>
+                        <li><a href="">3</a></li>
+                        <li><a href="">4</a></li>
+                        <li><a href="">5</a></li>
+                        <li><a href="">6</a></li>
+                        <li><a href=""><span>下一页</span></a></li>
+                    </ul>
+                </nav>
+
+                <div style="text-align: center">
+                    <span>tfvjuuyk kgukgtgyumbdbshbtrrtbrtht</span>
+                </div>
+            </div>
+        </div>
+        <!--用户添加模态框-->
+        <div aria-labelledby="exampleModalLabel" class="modal fade" id="exampleModal" role="dialog" tabindex="-1">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button aria-label="Close" class="close" data-dismiss="modal" type="button"><span
+                                aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title" id="exampleModalLabel">添加用户</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="form-group">
+                                <label class="control-label" for="recipient-name">用户名:</label>
+                                <input class="form-control" id="recipient-name" placeholder="请输入用户名" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="recipient-name">密码:</label>
+                                <input class="form-control" id="recipient-password" placeholder="请输入密码" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="recipient-name">确认用户密码:</label>
+                                <input class="form-control" id="recipient-password2" placeholder="请输入用户确认密码" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="recipient-name">请输入用户邮箱:</label>
+                                <input class="form-control" id="recipient-email" placeholder="请输入用户邮箱" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="recipient-name">所属用户组:</label><br>
+                                <div class="dropdown" style="float: left">
+                                    <button class="btn btn-default" data-toggle="dropdown" id="recipient-group">限制会员<span
+                                            class="caret"></span></button>
+                                    <ul class="dropdown-menu">
+                                        <li>a</li>
+                                        <li>a</li>
+                                        <li>a</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" data-dismiss="modal" type="button">关闭</button>
+                        <button class="btn btn-primary" type="button">提交</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>
